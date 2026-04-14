@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://dd8uwcgqciba8"]
+
+[ext_resource type="Script" uid="uid://dufv8mtrvw4pu" path="res://Asssets/Script/gomba.gd" id="1_4gyqm"]
+[ext_resource type="Texture2D" uid="uid://qjvnn5bvku0x" path="res://Asssets/Sprites/Sapucho/WalkingAndIdleSapucho.png" id="2_4gyqm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iifgy"]
+size = Vector2(29, 22)
+
+[sub_resource type="Animation" id="Animation_epg4t"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_3yqyl"]
+resource_name = "Walking"
+length = 0.26666668
+loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_wujgv"]
+resource_name = "hurt"
+length = 0.26666668
+loop_mode = 1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hb8ge"]
+_data = {
+&"RESET": SubResource("Animation_epg4t"),
+&"Walking": SubResource("Animation_3yqyl"),
+&"hurt": SubResource("Animation_wujgv")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iifgy"]
+atlas = ExtResource("2_4gyqm")
+region = Rect2(100, 0, 100, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3yqyl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iifgy")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="enemy" type="CharacterBody2D" unique_id=1071274449]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_4gyqm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1304451579]
+position = Vector2(4.5, 1)
+shape = SubResource("RectangleShape2D_iifgy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=19278844]
+libraries/ = SubResource("AnimationLibrary_hb8ge")
+autoplay = &"Walking"
+speed_scale = 0.6
+
+[node name="WallDetector" type="RayCast2D" parent="." unique_id=327272228]
+target_position = Vector2(-30, 0)
+collision_mask = 6
+
+[node name="FloorDetector" type="RayCast2D" parent="." unique_id=1204149084]
+target_position = Vector2(-30, 20)
+collision_mask = 6
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=375016780]
+position = Vector2(7.999998, -0.9999995)
+scale = Vector2(0.33, 0.36249998)
+sprite_frames = SubResource("SpriteFrames_3yqyl")
+animation = &"walk"
+frame_progress = 0.2449229

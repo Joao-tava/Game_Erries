@@ -1,0 +1,181 @@
+[gd_scene format=3 uid="uid://c1ts4j2x8dqby"]
+
+[ext_resource type="Script" uid="uid://m3pikckt0vdm" path="res://Asssets/Script/options_screen.gd" id="1_opts"]
+[ext_resource type="Script" uid="uid://ds8iu701ohurh" path="res://Asssets/Script/title_screen.gd" id="1_ts"]
+[ext_resource type="Texture2D" uid="uid://bffewb0chm5bm" path="res://Asssets/Sprites/Titlescreen & menus/titlescreen_v2.png" id="2_8u58e"]
+[ext_resource type="AudioStream" uid="uid://cadlhqwj8rlo2" path="res://Asssets/SoundEfects/Titlescreen_theme.wav" id="3_bgm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn"]
+bg_color = Color(0.2, 0.2, 0.2, 0.8)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8, 0.6, 0.1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
+bg_color = Color(0.3, 0.25, 0.1, 0.9)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 0.8, 0.2, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="TitleScreen" type="Control" unique_id=1312014517]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ts")
+
+[node name="Background" type="TextureRect" parent="." unique_id=530498704]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_8u58e")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBox" type="VBoxContainer" parent="." unique_id=1493219805]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -120.0
+offset_top = -320.0
+offset_right = 120.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 20
+
+[node name="StartButton" type="Button" parent="VBox" unique_id=354628122]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.95, 0.8, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.8, 0.2, 1)
+theme_override_colors/font_hover_color = Color(1, 0.95, 0.7, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "PLAY"
+
+[node name="OptionsButton" type="Button" parent="VBox" unique_id=1134677839]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.95, 0.8, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.8, 0.2, 1)
+theme_override_colors/font_hover_color = Color(1, 0.95, 0.7, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "OPTIONS"
+
+[node name="QuitButton" type="Button" parent="VBox" unique_id=464364244]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.95, 0.8, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.8, 0.2, 1)
+theme_override_colors/font_hover_color = Color(1, 0.95, 0.7, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "QUIT"
+
+[node name="OptionsScreen" type="Control" parent="." unique_id=696501894]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_opts")
+
+[node name="Panel" type="PanelContainer" parent="OptionsScreen" unique_id=2010041742]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -200.0
+offset_right = 250.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="OptionsScreen/Panel" unique_id=462266005]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Title" type="Label" parent="OptionsScreen/Panel/VBox" unique_id=1300391137]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9, 0.5, 1)
+theme_override_font_sizes/font_size = 36
+text = "OPTIONS"
+horizontal_alignment = 1
+
+[node name="VolumeRow" type="HBoxContainer" parent="OptionsScreen/Panel/VBox" unique_id=12694133]
+layout_mode = 2
+
+[node name="VolLabel" type="Label" parent="OptionsScreen/Panel/VBox/VolumeRow" unique_id=424911828]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.95, 0.8, 1)
+theme_override_font_sizes/font_size = 20
+text = "Volume:"
+
+[node name="VolumeSlider" type="HSlider" parent="OptionsScreen/Panel/VBox/VolumeRow" unique_id=2094538032]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="ResRow" type="HBoxContainer" parent="OptionsScreen/Panel/VBox" unique_id=952773393]
+layout_mode = 2
+
+[node name="ResLabel" type="Label" parent="OptionsScreen/Panel/VBox/ResRow" unique_id=363889398]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.95, 0.8, 1)
+theme_override_font_sizes/font_size = 20
+text = "Resolution:"
+
+[node name="ResOption" type="OptionButton" parent="OptionsScreen/Panel/VBox/ResRow" unique_id=620467651]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BackButton" type="Button" parent="OptionsScreen/Panel/VBox" unique_id=1550721339]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.95, 0.8, 1)
+theme_override_colors/font_hover_color = Color(1, 0.95, 0.7, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "BACK"
+
+[node name="BgmMusic" type="AudioStreamPlayer" parent="." unique_id=507397517]
+stream = ExtResource("3_bgm")
+volume_db = -10.0
+autoplay = true
