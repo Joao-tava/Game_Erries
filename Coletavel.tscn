@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bt2w8r8ilrcg6"]
+
+[ext_resource type="Script" uid="uid://da4ew4s2vbnts" path="res://Asssets/Script/coletavel.gd" id="1_3g2pu"]
+[ext_resource type="Texture2D" uid="uid://dibk0nfoub6xu" path="res://Asssets/Sprites/Coletavel/moeda.png" id="2_3g2pu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_86t2d"]
+radius = 85.052925
+
+[node name="Area2D" type="Area2D" unique_id=31192278]
+collision_layer = 8
+script = ExtResource("1_3g2pu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1100114694]
+rotation = -0.2468127
+shape = SubResource("CircleShape2D_86t2d")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2053919883]
+z_index = 1
+position = Vector2(7.6293945e-06, 1.9073486e-06)
+scale = Vector2(0.19472441, 0.20674399)
+texture = ExtResource("2_3g2pu")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

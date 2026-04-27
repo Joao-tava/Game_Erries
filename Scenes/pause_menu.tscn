@@ -1,0 +1,207 @@
+[gd_scene format=3 uid="uid://cpm1234568aa"]
+
+[ext_resource type="Script" uid="uid://04817xcpwwh0" path="res://Asssets/Script/pause_menu.gd" id="1_pm"]
+[ext_resource type="FontFile" uid="uid://ddprirssqe0d7" path="res://Asssets/Sprites/fontes/snow-bros.otf" id="2_font"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.05, 0.08, 0.05, 0.92)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.4, 0.7, 0.4, 0.8)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
+bg_color = Color(0, 0, 0, 0)
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=997123329]
+process_mode = 3
+script = ExtResource("1_pm")
+
+[node name="Panel" type="PanelContainer" parent="." unique_id=617782218]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -180.0
+offset_right = 200.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="CursorResume" type="Label" parent="Panel" unique_id=900001001]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.2, 0.2, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 26
+text = ">"
+horizontal_alignment = 2
+
+[node name="CursorOptions" type="Label" parent="Panel" unique_id=900001002]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.2, 0.2, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 26
+text = ">"
+horizontal_alignment = 2
+
+[node name="CursorQuit" type="Label" parent="Panel" unique_id=900001003]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.2, 0.2, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 26
+text = ">"
+horizontal_alignment = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel" unique_id=1659308714]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="PauseTitle" type="Label" parent="Panel/VBox" unique_id=1365906475]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.2, 0.2, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 42
+text = "PAUSED"
+horizontal_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="Panel/VBox" unique_id=40118992]
+custom_minimum_size = Vector2(220, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.85, 0.2, 0.2, 1)
+theme_override_colors/font_hover_color = Color(0.85, 0.2, 0.2, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "RESUME"
+
+[node name="OptionsButton" type="Button" parent="Panel/VBox" unique_id=473921196]
+custom_minimum_size = Vector2(220, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.85, 0.2, 0.2, 1)
+theme_override_colors/font_hover_color = Color(0.85, 0.2, 0.2, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "OPTIONS"
+
+[node name="QuitButton" type="Button" parent="Panel/VBox" unique_id=852586515]
+custom_minimum_size = Vector2(220, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.85, 0.2, 0.2, 1)
+theme_override_colors/font_hover_color = Color(0.85, 0.2, 0.2, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "QUIT TO TITLE"
+
+[node name="ControlsHint" type="Label" parent="Panel" unique_id=1781093882]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.6, 0.6, 0.8)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 14
+text = "[SELECT] A    [BACK] B"
+horizontal_alignment = 1
+
+[node name="OptionsScreen" type="Control" parent="." unique_id=1636785047]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="OptionsScreen" unique_id=1898405796]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -200.0
+offset_right = 250.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="VBox" type="VBoxContainer" parent="OptionsScreen/Panel" unique_id=979870745]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Title" type="Label" parent="OptionsScreen/Panel/VBox" unique_id=1743476872]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.2, 0.2, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 36
+text = "OPTIONS"
+horizontal_alignment = 1
+
+[node name="VolumeRow" type="HBoxContainer" parent="OptionsScreen/Panel/VBox" unique_id=430290949]
+layout_mode = 2
+
+[node name="VolLabel" type="Label" parent="OptionsScreen/Panel/VBox/VolumeRow" unique_id=578470585]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.95, 0.8, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 20
+text = "Volume:"
+
+[node name="VolumeSlider" type="HSlider" parent="OptionsScreen/Panel/VBox/VolumeRow" unique_id=915673476]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="ResRow" type="HBoxContainer" parent="OptionsScreen/Panel/VBox" unique_id=931830667]
+layout_mode = 2
+
+[node name="ResLabel" type="Label" parent="OptionsScreen/Panel/VBox/ResRow" unique_id=523372514]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.95, 0.8, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 20
+text = "Resolution:"
+
+[node name="ResOption" type="OptionButton" parent="OptionsScreen/Panel/VBox/ResRow" unique_id=1080680394]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 18
+
+[node name="BackButton" type="Button" parent="OptionsScreen/Panel/VBox" unique_id=911828447]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.95, 0.8, 1)
+theme_override_colors/font_hover_color = Color(0.85, 0.2, 0.2, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "BACK"

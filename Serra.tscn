@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://dysn74ewvxfmu"]
+
+[ext_resource type="Script" uid="uid://rfaoltant45g" path="res://Asssets/Script/serra.gd" id="1_fxki0"]
+[ext_resource type="Texture2D" uid="uid://636gxhgj2vfl" path="res://Asssets/Sprites/Serra/serra 2.0.png" id="2_fxki0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fxki0"]
+radius = 374.00534
+
+[sub_resource type="Animation" id="Animation_fxki0"]
+resource_name = "Serra_rodando"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_spbx1"]
+_data = {
+&"Serra_rodando": SubResource("Animation_fxki0")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxki0"]
+atlas = ExtResource("2_fxki0")
+region = Rect2(0, 0, 1325, 752)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_spbx1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fxki0")
+}],
+"loop": true,
+"name": &"serra",
+"speed": 5.0
+}]
+
+[node name="serra" type="Area2D" unique_id=33888694]
+scale = Vector2(0.17, 0.17)
+script = ExtResource("1_fxki0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1982342032]
+shape = SubResource("CircleShape2D_fxki0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1645592518]
+libraries/ = SubResource("AnimationLibrary_spbx1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1481516490]
+sprite_frames = SubResource("SpriteFrames_spbx1")
+animation = &"serra"
+frame_progress = 0.9939277

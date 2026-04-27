@@ -1,0 +1,152 @@
+[gd_scene format=3 uid="uid://dhbikty6g656a"]
+
+[ext_resource type="Script" uid="uid://myruoi8ydel8" path="res://Asssets/Scripts/world_map.gd" id="1"]
+[ext_resource type="Script" uid="uid://cdayedu6goucr" path="res://Asssets/Scripts/stage_node.gd" id="2"]
+[ext_resource type="Script" uid="uid://ck2e3q2klnxlc" path="res://Asssets/Scripts/map_path_drawer.gd" id="3"]
+[ext_resource type="Script" uid="uid://b0co7gfr62pu" path="res://Asssets/Scripts/world_map_hud.gd" id="4"]
+[ext_resource type="Texture2D" uid="uid://dwtmffgok07fm" path="res://Asssets/Sprites/WorldMap/level map BG.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://daarn4dxhj5fa" path="res://Asssets/Sprites/HUDS/LevelMapHud/Level Map HUD.png" id="6"]
+[ext_resource type="Script" uid="uid://dxmjp2csqajuy" path="res://Asssets/Scripts/world_map_music.gd" id="8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1"]
+radius = 25.0
+
+[node name="WorldMap" type="Control" unique_id=2073237991]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="Background" type="TextureRect" parent="." unique_id=143302895]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5")
+stretch_mode = 1
+
+[node name="StageNodes" type="Node2D" parent="." unique_id=1635645374]
+
+[node name="MapPathDrawer" type="Node2D" parent="StageNodes" unique_id=600436561]
+script = ExtResource("3")
+
+[node name="Phase1" type="Area2D" parent="StageNodes" unique_id=102560580]
+position = Vector2(180, 520)
+script = ExtResource("2")
+stage_name = "HELLO WORLD - Floresta"
+scene_path = "res://Asssets/Scenes/Areas/area_1.tscn"
+connections = Array[String](["Phase2"])
+
+[node name="Sprite2D" type="Sprite2D" parent="StageNodes/Phase1" unique_id=247175392]
+scale = Vector2(1.5, 1.5)
+
+[node name="Label" type="Label" parent="StageNodes/Phase1" unique_id=965030732]
+offset_right = 120.0
+offset_bottom = 23.0
+text = "Fase 1"
+horizontal_alignment = 1
+
+[node name="LockIcon" type="Sprite2D" parent="StageNodes/Phase1" unique_id=1896945135]
+visible = false
+scale = Vector2(1.5, 1.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StageNodes/Phase1" unique_id=1303864991]
+shape = SubResource("CircleShape2D_1")
+
+[node name="Phase2" type="Area2D" parent="StageNodes" unique_id=757186410]
+position = Vector2(320, 480)
+script = ExtResource("2")
+stage_name = "Fase 2 - Floresta"
+scene_path = "res://Asssets/Scenes/Areas/world_1.tscn"
+connections = Array[String](["Phase3"])
+
+[node name="Sprite2D" type="Sprite2D" parent="StageNodes/Phase2" unique_id=474004423]
+scale = Vector2(1.5, 1.5)
+
+[node name="Label" type="Label" parent="StageNodes/Phase2" unique_id=742432382]
+offset_right = 120.0
+offset_bottom = 23.0
+text = "Fase 2"
+horizontal_alignment = 1
+
+[node name="LockIcon" type="Sprite2D" parent="StageNodes/Phase2" unique_id=1101249418]
+visible = false
+scale = Vector2(1.5, 1.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StageNodes/Phase2" unique_id=741697092]
+shape = SubResource("CircleShape2D_1")
+
+[node name="Phase3" type="Area2D" parent="StageNodes" unique_id=962386360]
+position = Vector2(520, 450)
+script = ExtResource("2")
+stage_name = "Fase 3 - Deserto"
+biome = "deserto"
+connections = Array[String](["Phase4"])
+
+[node name="Sprite2D" type="Sprite2D" parent="StageNodes/Phase3" unique_id=202949260]
+scale = Vector2(1.5, 1.5)
+
+[node name="Label" type="Label" parent="StageNodes/Phase3" unique_id=864611627]
+offset_right = 120.0
+offset_bottom = 23.0
+text = "Fase 3"
+horizontal_alignment = 1
+
+[node name="LockIcon" type="Sprite2D" parent="StageNodes/Phase3" unique_id=1965196086]
+visible = false
+scale = Vector2(1.5, 1.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StageNodes/Phase3" unique_id=702752778]
+shape = SubResource("CircleShape2D_1")
+
+[node name="Phase4" type="Area2D" parent="StageNodes" unique_id=1063329306]
+position = Vector2(750, 380)
+script = ExtResource("2")
+stage_name = "Fase 4 - Vulcão"
+biome = "vulcao"
+
+[node name="Sprite2D" type="Sprite2D" parent="StageNodes/Phase4" unique_id=1291618846]
+scale = Vector2(1.5, 1.5)
+
+[node name="Label" type="Label" parent="StageNodes/Phase4" unique_id=1946348245]
+offset_right = 120.0
+offset_bottom = 23.0
+text = "Fase 4"
+horizontal_alignment = 1
+
+[node name="LockIcon" type="Sprite2D" parent="StageNodes/Phase4" unique_id=1361769194]
+visible = false
+scale = Vector2(1.5, 1.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StageNodes/Phase4" unique_id=1114240509]
+shape = SubResource("CircleShape2D_1")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1537326854]
+script = ExtResource("4")
+
+[node name="TopHUD" type="TextureRect" parent="HUD" unique_id=21378931]
+offset_left = -80.0
+offset_right = 1360.0
+offset_bottom = 720.0
+texture = ExtResource("6")
+stretch_mode = 1
+
+[node name="StageLabel" type="Label" parent="HUD/TopHUD" unique_id=1894238155]
+layout_mode = 1
+offset_left = 483.0
+offset_top = 43.0
+offset_right = 983.0
+offset_bottom = 77.0
+text = "Hello World!"
+horizontal_alignment = 1
+
+[node name="Music" type="Node" parent="." unique_id=1262733785]
+script = ExtResource("8")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Music" unique_id=1102583726]
+volume_db = -74.673
