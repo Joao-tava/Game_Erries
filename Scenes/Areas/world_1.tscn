@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://b2oj0u85ni7j4"]
+
+[ext_resource type="PackedScene" uid="uid://6co5gvt4qmi2" path="res://Asssets/Scenes/Areas/area_1.tscn" id="1_yev7h"]
+[ext_resource type="PackedScene" uid="uid://dd8uwcgqciba8" path="res://enemy.tscn" id="2_lr05j"]
+[ext_resource type="PackedScene" uid="uid://hud_scene_001" path="res://Asssets/Scenes/hud.tscn" id="3_hud"]
+
+[node name="World 1" unique_id=1504197769 instance=ExtResource("1_yev7h")]
+
+[node name="enemy" parent="." index="4" unique_id=1071274449 instance=ExtResource("2_lr05j")]
+light_mask = 4
+position = Vector2(331, 15)
+scale = Vector2(4.79, 4.79)
+
+[node name="HUD" parent="." instance=ExtResource("3_hud")]
